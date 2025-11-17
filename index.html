@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste CI/CD</title>
+    <style>
+        body { font-family: sans-serif; display: grid; place-items: center; min-height: 90vh; background: #f4f4f4; }
+        .container { text-align: center; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        #saida { margin-top: 20px; font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teste de API (CI/CD)</h1>
+        <p>Clique no botão para chamar a API no Render.</p>
+        <button onclick="chamarAPI()">Chamar API</button>
+        <pre id="saida">... (aguardando)</pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
