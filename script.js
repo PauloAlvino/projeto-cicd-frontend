@@ -1,21 +1,25 @@
-async function chamarAPI() {
-  const saida = document.getElementById('saida');
-  saida.innerText = "Carregando...";
+const RENDER_URL = 'https://api-cicd-p0ck.onrender.com'; 
 
-  try {
-    const RENDER_URL = 'https://api-cicd-p0ck.onrender.com'; 
-    
-    const resposta = await fetch(RENDER_URL);
-    
-    if (!resposta.ok) {
-        throw new Error(`HTTP Error: ${resposta.status}`);
+async function verificarStatus() {
+    const divResultado = document.getElementById('resultado');
+    divResultado.innerHTML = "Carregando...";
+
+    try {
+        const resposta = await fetch(RENDER_URL);
+        
+        if (!resposta.ok) {
+            throw new Error(`Erro HTTP: ${resposta.status}`);
+        }
+
+        const dados = await resposta.json();
+
+        divResultado.innerHTML = `
+            <p>${dados.mensagem}</p>
+            <span class="versao">v${dados.versao_atual}</span>
+        `;
+
+    } catch (error) {
+        console.error("Erro:", error);
+        divResultado.innerHTML = `<span style="color: red;">Erro ao conectar: ${error.message}</span>`;
     }
-
-    const dados = await resposta.json();
-    saida.innerText = JSON.stringify(dados, null, 2);
-
-  } catch (error) {
-    console.error("Erro ao chamar API:", error);
-    saida.innerText = `Erro ao chamar API: ${error.message}`;
-  }
 }
