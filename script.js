@@ -3,7 +3,7 @@ async function chamarAPI() {
   saida.innerText = "Carregando...";
 
   try {
-    const RENDER_URL = 'https://projeto-back.onrender.com'; 
+    const RENDER_URL = 'https://api-cicd-p0ck.onrender.com'; 
     
     const resposta = await fetch(RENDER_URL);
     
